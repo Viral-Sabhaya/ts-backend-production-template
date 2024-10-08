@@ -1,9 +1,13 @@
-import { createLogger, format, transports } from 'winston'
-import { ConsoleTransportInstance, FileTransportInstance } from 'winston/lib/winston/transports'
-import util from 'util'
-import config from '../config/config'
-import { EApplicationEnvironment } from '../constant/application'
-import path from 'path'
+import { createLogger, format, transports } from 'winston';
+import { ConsoleTransportInstance, FileTransportInstance } from 'winston/lib/winston/transports';
+import util from 'util';
+import config from '../config/config';
+import { EApplicationEnvironment } from '../constant/application';
+import path from 'path';
+import * as sourceMapSupport from 'source-map-support';
+
+// Linking Trace support
+sourceMapSupport.install();
 
 const consoleLogFormate = format.printf((info) => {
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
