@@ -5,11 +5,19 @@ import globalErrorHandler from './middleware/globalErrorHandler';
 import responseMessage from './constant/responseMessage';
 import httpError from './util/httpError';
 import helmet from 'helmet';
+import cors from 'cors'
 
 const app: Application = express();
 
 // helmet
 app.use(helmet())
+
+// cors
+app.use(cors({
+  methods: ['get', 'post', 'put', 'delete', 'patch', 'options', 'head'],
+  origin: ['http://localhost:4200'],
+  credentials: true
+}))
 
 // middleware
 app.use(express.json()); // use for fetch json data
