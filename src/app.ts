@@ -4,8 +4,12 @@ import router from './router/apiRouter';
 import globalErrorHandler from './middleware/globalErrorHandler';
 import responseMessage from './constant/responseMessage';
 import httpError from './util/httpError';
+import helmet from 'helmet';
 
 const app: Application = express();
+
+// helmet
+app.use(helmet())
 
 // middleware
 app.use(express.json()); // use for fetch json data
